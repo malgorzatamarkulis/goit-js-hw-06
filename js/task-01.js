@@ -1,16 +1,32 @@
 
-<script>
 const categoriesList = document.getElementById('categories');
 
+if (!categoriesList) {
+  throw new Error("categoriesList not found");
+}
+
 const categoryItems = categoriesList.querySelectorAll('li.item');
+console.log('categoriesList :', categoriesList);
+
+if (!categoryItems.length) {
+  throw new Error("List length = 0!");
+}
+
 
 console.log('Number of categories: ' + categoryItems.length);
+console.log("categoryItems", categoryItems);
 
 categoryItems.forEach(categoryItem => {
-  const categoryName = categoryItem.querySelector('h2').textContent;
+  const h2 = categoryItem.querySelector('h2');
+
+  if (!h2) {
+    console.error('h2 in foreach not found');
+    return;
+  }
+
+  const categoryName = h2.textContent;
   const categoryElements = categoryItem.querySelectorAll('li').length;
 
   console.log('Category: ' + categoryName);
   console.log('Elements: ' + categoryElements);
 });
-</script>
