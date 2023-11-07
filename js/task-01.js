@@ -1,4 +1,3 @@
-
 const categoriesList = document.getElementById('categories');
 
 if (!categoriesList) {
@@ -6,15 +5,11 @@ if (!categoriesList) {
 }
 
 const categoryItems = categoriesList.querySelectorAll('li.item');
-console.log('categoriesList :', categoriesList);
+console.log('Number of categories: ' + categoryItems.length);
 
 if (!categoryItems.length) {
   throw new Error("List length = 0!");
 }
-
-
-console.log('Number of categories: ' + categoryItems.length);
-console.log("categoryItems", categoryItems);
 
 categoryItems.forEach(categoryItem => {
   const h2 = categoryItem.querySelector('h2');

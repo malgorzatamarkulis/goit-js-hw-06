@@ -9,13 +9,13 @@ const ingredients = [
 
 
 const ulElement = document.getElementById("ingredients");
+const liElements = [];
 
 ingredients.forEach((ingredient) => {
   const liElement = document.createElement("li");
-
   liElement.textContent = ingredient;
-
   liElement.classList.add("item");
-
-  ulElement.appendChild(liElement);
+  liElements.push(liElement);
 });
+
+ulElement.append(...liElements);
